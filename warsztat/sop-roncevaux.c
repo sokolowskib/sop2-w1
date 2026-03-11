@@ -225,7 +225,8 @@ void read_files()
         fscanf(saracens, "%s %d %d", buf, &hp, &strength);
         create_soldier(i, SARACENS, buf, hp, strength, &spanish, &french);
     }
-
+    fclose(francs);
+    fclose(saracens);
     for (int i = 0; i < francs_count; i++)
     {
         close(francs_fds[i][0]);
@@ -236,8 +237,6 @@ void read_files()
         close(saracens_fds[i][0]);
         close(saracens_fds[i][1]);
     }
-    fclose(francs);
-    fclose(saracens);
 }
 
 int main(int argc, char* argv[])
